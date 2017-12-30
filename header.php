@@ -21,6 +21,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700">
+  <link rel="stylesheet" href="/wp-content/themes/chesterStore/font-awesome/css/font-awesome.min.css">
 	<?php wp_head(); ?>
 </head>
 
@@ -34,7 +35,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
 		'understrap' ); ?></a>
 
-		<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-primary">
+		<nav class="navbar navbar-expand-md static-top navbar-dark bg-primary">
 
 		<?php if ( 'container' == $container ) : ?>
 			<div class="container">
@@ -58,23 +59,30 @@ $container = get_theme_mod( 'understrap_container_type' );
 						the_custom_logo();
 					} ?><!-- end custom logo -->
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#storeGlobalNavCollapse1" aria-controls="storeGlobalNavCollapse1" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
 				<!-- The WordPress Menu goes here -->
-				<?php wp_nav_menu(
-					array(
-						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse',
-						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav',
-						'fallback_cb'     => '',
-						'menu_id'         => 'main-menu',
-						'walker'          => new WP_Bootstrap_Navwalker(),
-					)
-				); ?>
+        <?php
+        wp_nav_menu( array(
+            'theme_location'    => 'primary',
+            'depth'             => 2,
+            'container'         => 'div',
+            'container_class'   => 'collapse navbar-collapse',
+            'container_id'      => 'storeGlobalNavCollapse1',
+            'menu_class'        => 'nav navbar-nav',
+            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+            'walker'            => new WP_Bootstrap_Navwalker(),
+        ) );
+        ?>
 			<?php if ( 'container' == $container ) : ?>
+        <?php
+          if (is_user_logged_in()) {
+            $current_user = wp_get_current_user();
+            echo '<span class="navbar-text d-none d-lg-inline-block">Hello ' . $current_user->user_firstname . ' ' . $current_user->user_lastname . '</span>';
+          }
+        ?>
 			</div><!-- .container -->
 			<?php endif; ?>
 
@@ -86,7 +94,7 @@ $container = get_theme_mod( 'understrap_container_type' );
     <div class="row d-print-none align-items-center" style="margin-top:0px">
       <div class="col-md-8">
   	  <h1 class="mb-0">
-        <a class="logo" alt="Chester-le-Street ASC" href="<?php echo esc_url( home_url( '/' ) ); ?>"></a><span class="sr-only">"Chester&#8209;le&#8209;Street&nbsp;ASC</span>
+        <a class="storeLogo" alt="Chester-le-Street ASC" href="<?php echo esc_url( home_url( '/' ) ); ?>"></a><span class="sr-only">"Chester&#8209;le&#8209;Street&nbsp;ASC</span>
       </h1>
   	</div>
   	<div class="col d-none d-md-block">
@@ -123,6 +131,18 @@ $container = get_theme_mod( 'understrap_container_type' );
       </div>
     </div>
   	<hr>
+    <div id="noSupportAlert">
+      <div class="alert alert-danger">
+        <p><strong>Unsupported Browser</strong><br>You're using an unsupported browser and this website will not work properly with it. <a href="http://browsehappy.com/" class="alert-link" target="_blank">Upgrade your browser today <i class="fa fa-external-link" aria-hidden="true"></i></a> to any which supports CSS Grid to better experience this site.</p>
+        <p>We support the two latest versions of...</p>
+        <ul class="mb-0">
+          <li>Mozilla Firefox</li>
+          <li>Microsoft Edge</li>
+          <li>iOS Safari 10.3 or later</li>
+          <li>MacOS Safari 11</li>
+          <li>Google Chrome</li>
+        </ul></div>
+    </div>
       <!--[if !IE]><div class="alert alert-danger"><strong>Unsupported Browser</strong><br>You're using an unsupported browser and this website may not work properly with it. <a href="http://browsehappy.com/" class="alert-link" target="_blank">Upgrade your browser today <i class="fa fa-external-link" aria-hidden="true"></i> </a> or <a href="https://www.google.com/chrome/browser/desktop/index.html" class="alert-link" target="_blank">install Google Chrome <i class="fa fa-external-link" aria-hidden="true"></i> </a> to better experience this site.</p></div><hr><![endif]-->
       <noscript>
       <div class="alert alert-danger">

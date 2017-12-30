@@ -5,10 +5,6 @@
  * @package chesterStore
  */
 
- add_filter('body_class', 'mbe_body_class');
-
- add_action('wp_head', 'mbe_wp_head');
-
 /**
  * Theme setup and custom theme supports.
  */
@@ -39,7 +35,17 @@ require get_template_directory() . '/inc/template-tags.php';
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/pagination.php';
+// require get_template_directory() . '/inc/pagination.php';
+
+
+// Register Custom Navigation Walker
+require_once('inc/wp_bootstrap_pagination.php');
+function customize_wp_bootstrap_pagination($args) {
+	$args['previous_string'] = '<i class="fa fa-angle-left" aria-hidden="true"></i><p class="sr-only">Previous Page</p>';
+    	$args['next_string'] = '<i class="fa fa-angle-right" aria-hidden="true"></i><p class="sr-only">Next Page</p>';
+    return $args;
+}
+add_filter('wp_bootstrap_pagination_defaults', 'customize_wp_bootstrap_pagination');
 
 /**
  * Custom functions that act independently of the theme templates.
@@ -75,22 +81,3 @@ require get_template_directory() . '/inc/woocommerce.php';
  * Load Editor functions.
  */
 require get_template_directory() . '/inc/editor.php';
-
-function mbe_body_class($classes){
-    if(is_user_logged_in()){
-        $classes[] = 'body-logged-in';
-    } else{
-        $classes[] = 'body-logged-out';
-    }
-    return $classes;
-}
-
-function mbe_wp_head(){
-    echo '<style>'.PHP_EOL;
-    echo 'body{ padding-top: 4.5rem !important; }'.PHP_EOL;
-  //   Using custom CSS class name.
-    echo '@media (min-width:784px){body.body-logged-in .fixed-top{ top: 32px !important; }}@media (max-width:783px){body.body-logged-in .fixed-top{ top: 46px !important;} #wpadminbar{position:fixed !important;}'.PHP_EOL;
-    // Using WordPress default CSS class name.
-    echo '@media (min-width:784px){body.body-logged-in .fixed-top{ top: 32px !important; }}@media (max-width:783px){body.body-logged-in .fixed-top{ top: 46px !important;} #wpadminbar{position:fixed !important;}'.PHP_EOL;
-    echo '</style>'.PHP_EOL;
-}

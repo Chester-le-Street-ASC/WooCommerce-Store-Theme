@@ -36,29 +36,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<h2><?php _e( 'Login', 'woocommerce' ); ?></h2>
 
-		<form class="woocommerce-form woocommerce-form-login login" method="post">
+		<form method="post">
 
 			<?php do_action( 'woocommerce_login_form_start' ); ?>
 
-			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+      <div class="form-group">
 				<label for="username"><?php _e( 'Username or email address', 'woocommerce' ); ?> <span class="required">*</span></label>
-				<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( $_POST['username'] ) : ''; ?>" />
-			</p>
-			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+				<input type="text" class="form-control" name="username" id="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( $_POST['username'] ) : ''; ?>" />
+      </div>
+
+      <div class="form-group">
 				<label for="password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
-				<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" />
-			</p>
+				<input class="form-control" type="password" name="password" id="password" />
+      </div>
 
 			<?php do_action( 'woocommerce_login_form' ); ?>
 
-			<p class="form-row">
-				<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-				<input type="submit" class="btn btn-outline-primary" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
-				<label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
-					<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span><?php _e( 'Remember me', 'woocommerce' ); ?></span>
-				</label>
-			</p>
-			<p class="woocommerce-LostPassword lost_password">
+			<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
+
+      <div class="custom-control custom-checkbox mb-3">
+        <input class="custom-control-input" name="rememberme" type="checkbox" id="rememberme" value="forever">
+        <label class="custom-control-label" for="rememberme"><?php _e( 'Remember me', 'woocommerce' ); ?></label>
+      </div>
+
+      <p><input type="submit" class="btn btn-outline-primary" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" /></p>
+
+			<p>
 				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
 			</p>
 
@@ -74,38 +77,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<h2><?php _e( 'Register', 'woocommerce' ); ?></h2>
 
-		<form method="post" class="register">
+		<form method="post">
 
 			<?php do_action( 'woocommerce_register_form_start' ); ?>
 
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
 
-				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+				<div class="form-group">
 					<label for="reg_username"><?php _e( 'Username', 'woocommerce' ); ?> <span class="required">*</span></label>
-					<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( $_POST['username'] ) : ''; ?>" />
-				</p>
+					<input type="text" class="form-control" name="username" id="reg_username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( $_POST['username'] ) : ''; ?>" />
+				</div>
 
 			<?php endif; ?>
 
-			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+			<div class="form-group">
 				<label for="reg_email"><?php _e( 'Email address', 'woocommerce' ); ?> <span class="required">*</span></label>
-				<input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" value="<?php echo ( ! empty( $_POST['email'] ) ) ? esc_attr( $_POST['email'] ) : ''; ?>" />
-			</p>
+				<input type="email" class="form-control" name="email" id="reg_email" value="<?php echo ( ! empty( $_POST['email'] ) ) ? esc_attr( $_POST['email'] ) : ''; ?>" />
+			</div>
 
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>
 
-				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+				<div class="form-group">
 					<label for="reg_password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
-					<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" />
-				</p>
+					<input type="password" class="form-control" name="password" id="reg_password" />
+				</div>
 
 			<?php endif; ?>
 
 			<?php do_action( 'woocommerce_register_form' ); ?>
 
-			<p class="woocommerce-FormRow form-row">
+			<p>
 				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
-				<input type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
+				<input type="submit" class="btn btn-outline-success" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
 			</p>
 
 			<?php do_action( 'woocommerce_register_form_end' ); ?>

@@ -81,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				?>
 			</ul>
 		<?php endif; ?>
-		<div class="form-row">
+		<div class="">
 			<input type="hidden" name="woocommerce_pay" value="1" />
 
 			<?php wc_get_template( 'checkout/terms.php' ); ?>

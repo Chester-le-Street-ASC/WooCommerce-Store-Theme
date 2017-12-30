@@ -23,13 +23,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 do_action( 'woocommerce_before_account_navigation' );
 ?>
 
-<nav class="woocommerce-MyAccount-navigation" role="navigation">
-	<div class="list-group">
-			<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
-				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"
-				   class="list-group-item list-group-item-action"><?php echo esc_html( $label ); ?></a>
-			<?php endforeach; ?>
-	</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light woocommerce-MyAccount-navigation mb-3" role="navigation">
+  <span class="navbar-brand mb-0 h1 d-lg-none">Account Options</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  	<ul class="navbar-nav mr-auto">
+  			<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
+  				<li class="nav-item">
+            <a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"
+  				   class="nav-link"><?php echo esc_html( $label ); ?>
+           </a>
+          </li>
+  			<?php endforeach; ?>
+  	</ul>
+  </div>
 </nav>
 
 <?php do_action( 'woocommerce_after_account_navigation' ); ?>

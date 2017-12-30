@@ -111,8 +111,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </div><!-- #page we need this extra closing tag here -->
 <script rel="preload" src="https://static.chesterlestreetasc.co.uk/global/js/jquery.min.js"></script>
+<script async src="https://static.chesterlestreetasc.co.uk/global/js/clscookies.js"></script>
 <?php wp_footer(); ?>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </body>
 
 </html>

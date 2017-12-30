@@ -26,36 +26,36 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 
 	<?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 
-	<p class="woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first">
+	<div class="form-group">
 		<label for="account_first_name"><?php _e( 'First name', 'woocommerce' ); ?> <span class="required">*</span></label>
-		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="account_first_name" id="account_first_name" value="<?php echo esc_attr( $user->first_name ); ?>" />
-	</p>
-	<p class="woocommerce-FormRow woocommerce-FormRow--last form-row form-row-last">
+		<input type="text" class="form-control" name="account_first_name" id="account_first_name" value="<?php echo esc_attr( $user->first_name ); ?>" />
+	</div>
+	<div class="form-group">
 		<label for="account_last_name"><?php _e( 'Last name', 'woocommerce' ); ?> <span class="required">*</span></label>
-		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="account_last_name" id="account_last_name" value="<?php echo esc_attr( $user->last_name ); ?>" />
-	</p>
+		<input type="text" class="form-control" name="account_last_name" id="account_last_name" value="<?php echo esc_attr( $user->last_name ); ?>" />
+	</div>
 	<div class="clear"></div>
 
-	<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+	<div class="form-group">
 		<label for="account_email"><?php _e( 'Email address', 'woocommerce' ); ?> <span class="required">*</span></label>
-		<input type="email" class="woocommerce-Input woocommerce-Input--email input-text form-control" name="account_email" id="account_email" value="<?php echo esc_attr( $user->user_email ); ?>" />
-	</p>
+		<input type="email" class="form-control" name="account_email" id="account_email" value="<?php echo esc_attr( $user->user_email ); ?>" />
+	</div>
 
 	<fieldset>
 		<legend><?php _e( 'Password Change', 'woocommerce' ); ?></legend>
 
-		<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+		<div class="form-group">
 			<label for="password_current"><?php _e( 'Current Password (leave blank to leave unchanged)', 'woocommerce' ); ?></label>
-			<input type="password" class="woocommerce-Input woocommerce-Input--password input-text form-control" name="password_current" id="password_current" />
-		</p>
-		<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+			<input type="password" class="form-control" name="password_current" id="password_current" autocomplete="off"/>
+		</div>
+		<div class="form-group">
 			<label for="password_1"><?php _e( 'New Password (leave blank to leave unchanged)', 'woocommerce' ); ?></label>
-			<input type="password" class="woocommerce-Input woocommerce-Input--password input-text form-control" name="password_1" id="password_1" />
-		</p>
-		<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+			<input type="password" class="form-control" name="password_1" id="password_1" autocomplete="off"/>
+		</div>
+		<div class="form-group">
 			<label for="password_2"><?php _e( 'Confirm New Password', 'woocommerce' ); ?></label>
-			<input type="password" class="woocommerce-Input woocommerce-Input--password input-text form-control" name="password_2" id="password_2" />
-		</p>
+			<input type="password" class="form-control" name="password_2" id="password_2" autocomplete="off"/>
+		</div>
 	</fieldset>
 	<div class="clear"></div>
 
