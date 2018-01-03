@@ -22,6 +22,23 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700">
   <link rel="stylesheet" href="/wp-content/themes/chesterStore/font-awesome/css/font-awesome.min.css">
+
+  <!-- Global site tag (analytics.js) - Google Analytics -->
+  <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-78812259-3', 'auto');
+    <?php if (is_user_logged_in()) {
+        $current_user = wp_get_current_user();
+        echo 'ga(\'set\', \'userId\', \'' . $current_user->ID . '\'); // Set the user ID using signed-in user_id.';
+      }
+    ?>
+    ga('send', 'pageview');
+  </script>
 	<?php wp_head(); ?>
 </head>
 
@@ -35,60 +52,38 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
 		'understrap' ); ?></a>
 
-		<nav class="navbar navbar-expand-md static-top navbar-dark bg-primary">
-
-		<?php if ( 'container' == $container ) : ?>
-			<div class="container">
-		<?php endif; ?>
-
-					<!-- Your site title as branding in the menu -->
-					<?php if ( ! has_custom_logo() ) { ?>
-
-						<?php if ( is_front_page() && is_home() ) : ?>
-
-							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><!--<?php bloginfo( 'name' ); ?>-->Club Shop</a></h1>
-
-						<?php else : ?>
-
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><!--<?php bloginfo( 'name' ); ?>-->Club Shop</a>
-
-						<?php endif; ?>
-
-
-					<?php } else {
-						the_custom_logo();
-					} ?><!-- end custom logo -->
-
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#storeGlobalNavCollapse1" aria-controls="storeGlobalNavCollapse1" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<!-- The WordPress Menu goes here -->
+    <nav class="navbar static-top navbar-expand-lg navbar-dark bg-primary d-print-none justify-content-between" role="navigation">
+      <div class="container">
+        <a class="navbar-brand" href="<?php echo home_url(); ?>"><!--<?php bloginfo('name'); ?>-->CLS ASC Store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#chesterNavbar" aria-controls="chesterNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <?php
-        wp_nav_menu( array(
+          wp_nav_menu( array(
+            'menu'              => 'primary',
             'theme_location'    => 'primary',
             'depth'             => 2,
             'container'         => 'div',
             'container_class'   => 'collapse navbar-collapse',
-            'container_id'      => 'storeGlobalNavCollapse1',
-            'menu_class'        => 'nav navbar-nav',
+            'container_id'      => 'chesterNavbar',
+            'menu_class'        => 'nav navbar-nav justify-content-end',
             'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-            'walker'            => new WP_Bootstrap_Navwalker(),
-        ) );
+            'walker'            => new WP_Bootstrap_Navwalker())
+          );
         ?>
-			<?php if ( 'container' == $container ) : ?>
-        <?php
-          if (is_user_logged_in()) {
-            $current_user = wp_get_current_user();
-            echo '<span class="navbar-text d-none d-lg-inline-block">Hello ' . $current_user->user_firstname . ' ' . $current_user->user_lastname . '</span>';
-          }
-        ?>
-			</div><!-- .container -->
-			<?php endif; ?>
-
-		</nav><!-- .site-navigation -->
-
+      </div>
+    </nav>
 	</div><!-- .wrapper-navbar end -->
+  <?php
+    if (!is_user_logged_in()) {
+      echo '
+  <div class="homepage-masthead bg-warning d-print-none" style="margin:0;color:#212529">
+  <div class="container">
+    <p class="h3">This website is under development</p>
+    <p class="mb-0">You cannot yet make purchases from this site. If you\'re in our beta trials, ignore this message.</p>
+  </div>
+</div>
+';}?>
 
   <header class="container">
     <div class="row d-print-none align-items-center" style="margin-top:0px">
@@ -98,7 +93,7 @@ $container = get_theme_mod( 'understrap_container_type' );
       </h1>
   	</div>
   	<div class="col d-none d-md-block">
-  	  <p class="lead text-right mb-0">Our Online Shop <span class="badge badge-secondary">BETA</span></p>
+  	  <p class="slogan"><a href="https://chesterlestreetasc.co.uk/beta" target="_blank" class="badge badge-secondary">BETA</a></p>
   	</div>
     </div>
     <!--<style>.featureHeader{background:#bd0000;background-image:url("https://www.chesterlestreetasc.co.uk/wp-content/themes/chester/img/christmas.png");background-size:100% auto;padding:1rem;color:#fff;text-shadow: 1px 1px 1px #000;
@@ -134,14 +129,16 @@ $container = get_theme_mod( 'understrap_container_type' );
     <div id="noSupportAlert">
       <div class="alert alert-danger">
         <p><strong>Unsupported Browser</strong><br>You're using an unsupported browser and this website will not work properly with it. <a href="http://browsehappy.com/" class="alert-link" target="_blank">Upgrade your browser today <i class="fa fa-external-link" aria-hidden="true"></i></a> to any which supports CSS Grid to better experience this site.</p>
-        <p>We support the two latest versions of...</p>
-        <ul class="mb-0">
-          <li>Mozilla Firefox</li>
-          <li>Microsoft Edge</li>
-          <li>iOS Safari 10.3 or later</li>
-          <li>MacOS Safari 11</li>
-          <li>Google Chrome</li>
-        </ul></div>
+        <p>We support the following browsers...</p>
+        <ul>
+          <li>Mozilla Firefox 52 or later</li>
+          <li>Microsoft Edge 16 or later</li>
+          <li>Safari and other browsers on iOS 10.3 or later</li>
+          <li>MacOS Safari 10.1 or later</li>
+          <li>Google Chrome 57 or later</li>
+        </ul>
+        <p class="mb-0"><a href="https://caniuse.com/#feat=css-grid" class="alert-link" target="_blank">Check for browser support for CSS Grid at Can I Use? <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+      </div>
     </div>
       <!--[if !IE]><div class="alert alert-danger"><strong>Unsupported Browser</strong><br>You're using an unsupported browser and this website may not work properly with it. <a href="http://browsehappy.com/" class="alert-link" target="_blank">Upgrade your browser today <i class="fa fa-external-link" aria-hidden="true"></i> </a> or <a href="https://www.google.com/chrome/browser/desktop/index.html" class="alert-link" target="_blank">install Google Chrome <i class="fa fa-external-link" aria-hidden="true"></i> </a> to better experience this site.</p></div><hr><![endif]-->
       <noscript>

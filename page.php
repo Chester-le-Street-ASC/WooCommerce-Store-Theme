@@ -1,61 +1,27 @@
-<?php
-/**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
- *
- * @package understrap
- */
+<?php get_header(); ?>
+  <div class="container">
+    <div class="row">
 
-get_header();
+      <main class="col-lg-8 blog-main">
 
-$container   = get_theme_mod( 'understrap_container_type' );
-$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
+  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-?>
+          <div id="post-<?php the_ID(); ?>" <?php post_class('post blog-post'); ?>>
+                <h1 class="m-t-0"><?php the_title(); ?></h1>
 
-<div class="wrapper" id="page-wrapper">
+      <div class="entry clearfix"><?php the_content(); ?></div>
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+      <?php comments_template(); ?>
 
-		<div class="row">
+    </div>
 
-			<!-- Do the left sidebar check -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
+  <?php endwhile; endif; ?>
 
-			<main class="site-main" id="main">
+      </main><!-- /.blog-main -->
 
-				<?php while ( have_posts() ) : the_post(); ?>
+<div class="col-lg-4"><?php get_sidebar(); ?></div>
 
-					<?php get_template_part( 'loop-templates/content', 'page' ); ?>
-
-					<?php
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
-					?>
-
-				<?php endwhile; // end of the loop. ?>
-
-			</main><!-- #main -->
-
-		</div><!-- #primary -->
-
-		<!-- Do the right sidebar check -->
-		<?php if ( 'right' === $sidebar_pos || 'both' === $sidebar_pos ) : ?>
-
-			<?php get_sidebar( 'right' ); ?>
-
-		<?php endif; ?>
-
-	</div><!-- .row -->
-
-</div><!-- Container end -->
-
-</div><!-- Wrapper end -->
+</div>
+</div>
 
 <?php get_footer(); ?>

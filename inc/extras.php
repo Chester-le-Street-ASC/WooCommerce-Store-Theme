@@ -107,3 +107,19 @@ if ( ! function_exists( 'understrap_post_nav' ) ) :
 		<?php
 	}
 endif;
+
+add_action( 'widgets_init', 'chester_register_sidebars' );
+
+function chester_register_sidebars() {
+register_sidebar(
+array(
+  'id' => 'primary',
+  'name' => __( 'Primary Sidebar', 'chester' ),
+  'description' => __( 'The following widgets will appear in the Prmary Sidebar.', 'chester' ),
+  'before_widget' => '<div id="%1$s" class="sidebar-module widget %2$s cell">',
+  'after_widget' => '</div>',
+  'before_title' => '<h4 class="sidebar-module-title">',
+  'after_title' => '</h4>'
+)
+);
+}

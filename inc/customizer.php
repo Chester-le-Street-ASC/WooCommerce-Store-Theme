@@ -64,7 +64,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 				)
 			) );
 
-		$wp_customize->add_setting( 'understrap_sidebar_position', array(
+		/*$wp_customize->add_setting( 'understrap_sidebar_position', array(
 			'default'           => 'right',
 			'type'              => 'theme_mod',
 			'sanitize_callback' => 'esc_textarea',
@@ -89,7 +89,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					),
 					'priority'    => '20',
 				)
-			) );
+			) );*/
 	}
 } // endif function_exists( 'understrap_theme_customize_register' ).
 add_action( 'customize_register', 'understrap_theme_customize_register' );

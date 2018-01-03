@@ -18,8 +18,8 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 		//wp_register_script('jquery-slim', (get_template_directory_uri() . '/js/jquery.slim.min.js'), true, '3.2.1');
 		//wp_register_script('jquery', 'https://code.jquery.com/jquery-3.2.1.min.js');
 
-		wp_enqueue_script( 'popper-scripts', get_template_directory_uri() . '/js/popper.min.js', array(), true);
-		wp_enqueue_script( 'understrap-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $the_theme->get( 'Version' ), true );
+		//wp_enqueue_script( 'popper-scripts', get_template_directory_uri() . '/js/popper.min.js', array(), true);
+		//wp_enqueue_script( 'understrap-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $the_theme->get( 'Version' ), true );
     wp_enqueue_style('chester-bootstap', get_stylesheet_directory_uri() . '/css/bootstrap6.css');
     wp_enqueue_style('chester-style', 'https://www.chesterlestreetasc.co.uk/wp-content/themes/chester/chester.css');
 

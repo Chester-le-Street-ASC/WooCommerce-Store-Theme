@@ -29,7 +29,7 @@ global $product;
 		) );
 ?>
   <div class="input-group-append">
-	   <button type="submit" class="btn btn-primary"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+	   <button type="submit" class="single_add_to_cart_button alt btn btn-primary"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
    </div>
   <?php 		/**
   		 * @since 3.0.0.

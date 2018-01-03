@@ -1,17 +1,20 @@
-<?php
-/**
- * The sidebar containing the main widget area.
- *
- * @package understrap
- */
+<div class="row"><div class="col-md-12 blog-sidebar d-print-none"><hr class="d-lg-none d-xl-none">
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
-?>
+	<?php if ( ! dynamic_sidebar( 'primary' ) ) : ?>
 
-<div class="col-md-4 widget-area" id="secondary" role="complementary">
+	<div id="search" class="sidebar-module"><?php get_search_form(); ?></div>
 
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<div id="categories" class="sidebar-module"><h4>Categories</h4>
+		<ul><?php wp_list_categories( 'title_li=' ); ?></ul>
+	</div>
 
-</div><!-- #secondary -->
+    	<div id="archives" class="sidebar-modulet"><h4>Archives</h4>
+		<ul><?php wp_get_archives( 'type=monthly' ); ?></ul>
+	</div>
+
+	<div id="subscribe" class="sidebar-module"><h4>Subscribe</h4>
+		<ul><li><a href="<?php bloginfo( 'rss2_url' ); ?>">Entries (RSS)</a></li><li><a href="<?php bloginfo( 'comments_rss2_url' ); ?>">Comments (RSS)</a></li></ul>
+	</div>
+
+	<?php endif; ?>
+</div></div>

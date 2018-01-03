@@ -15,7 +15,7 @@ require get_template_directory() . '/inc/setup.php';
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-require get_template_directory() . '/inc/widgets.php';
+//require get_template_directory() . '/inc/widgets.php';
 
 /**
  * Load functions to secure your WP install.
@@ -70,7 +70,13 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
  * Load custom WordPress nav walker.
  */
-require get_template_directory() . '/inc/bootstrap-wp-navwalker.php';
+
+ // Add menu features
+ register_nav_menus( array(
+    	'primary' => __( 'Primary Menu', 'chesterStore' ),
+	) );
+
+require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 
 /**
  * Load WooCommerce functions.

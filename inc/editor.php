@@ -8,7 +8,7 @@
 /**
  * Registers an editor stylesheet for the theme.
  */
-function wpdocs_theme_add_editor_styles() {
+/*function wpdocs_theme_add_editor_styles() {
   add_editor_style( 'css/custom-editor-style.css' );
 }
 add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );
@@ -54,7 +54,7 @@ function understrap_tiny_mce_before_init( $settings ) {
           'inline' => 'cite'
       )
   );
-  
+
     if ( isset( $settings['style_formats'] ) ) {
       $orig_style_formats = json_decode($settings['style_formats'],true);
       $style_formats = array_merge($orig_style_formats,$style_formats);
@@ -63,3 +63,4 @@ function understrap_tiny_mce_before_init( $settings ) {
     $settings['style_formats'] = json_encode( $style_formats );
     return $settings;
 }
+*/

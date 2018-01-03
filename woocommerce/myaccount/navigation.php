@@ -33,7 +33,7 @@ do_action( 'woocommerce_before_account_navigation' );
   			<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
   				<li class="nav-item">
             <a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"
-  				   class="nav-link"><?php echo esc_html( $label ); ?>
+  				   class="nav-link "><?php echo esc_html( $label ); ?>
            </a>
           </li>
   			<?php endforeach; ?>

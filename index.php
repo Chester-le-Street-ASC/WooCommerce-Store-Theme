@@ -1,79 +1,59 @@
-<?php
-/**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package understrap
- */
+<?php get_header(); ?>
+    <div class="container">
+      <div class="row">
 
-get_header();
+        <div class="col-12 blog-main">
 
-$container   = get_theme_mod( 'understrap_container_type' );
-$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
-?>
+        <?php if (have_posts()) : ?>
 
-<?php if ( is_front_page() && is_home() ) : ?>
-	<?php get_template_part( 'global-templates/hero' ); ?>
-<?php endif; ?>
+		<!--<h1>
 
-<div class="wrapper" id="wrapper-index">
+		<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+		<?php if (is_category()) { ?>
+			<?php echo single_cat_title(); ?>
 
-		<div class="row">
+		<?php } elseif( is_tag() ) { ?>
+			<?php _e( 'Posts Tagged:', 'chester' ); ?> <?php single_tag_title(); ?>
 
-			<!-- Do the left sidebar check and opens the primary div -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
+		<?php } elseif (is_day()) { ?>
+			<?php _e( 'Archive for', 'chester' ); ?> <?php echo get_the_date(); ?>
 
-			<main class="site-main" id="main">
+		<?php } elseif (is_month()) { ?>
+			<?php _e( 'Archive for', 'chester' ); ?> <?php echo get_the_date( _x( 'F Y', 'monthly archives date format', 'chester' ) ) ?>
 
-				<?php if ( have_posts() ) : ?>
+		<?php } elseif (is_year()) { ?>
+			<?php _e( 'Archive for', 'chester' ); ?> <?php echo get_the_date( _x( 'Y', 'yearly archives date format', 'chester' ) ) ?>
 
-					<?php /* Start the Loop */ ?>
+		<?php } elseif (is_search()) { ?>
+			<?php _e( 'Search Results', 'chester' ); ?>
 
-					<?php while ( have_posts() ) : the_post(); ?>
+		<?php } elseif (is_author()) { ?>
+			<?php _e( 'Author Archive', 'chester' ); ?>
 
-						<?php
+		<?php } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
+			<?php _e( 'Blog Archives', 'chester' ); ?>
 
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'loop-templates/content', get_post_format() );
-						?>
+		<?php } ?>
+			</h1>-->
 
-					<?php endwhile; ?>
+	<?php while (have_posts()) : the_post(); ?>
 
-				<?php else : ?>
+                <div class="flex-panel flex-panel-default flex-panel-body flex-panel-top-primary">
+            		<a href="<?php the_permalink() ?>" rel="bookmark"><h2 class="blog-post-title"><?php the_title(); ?></h2></a>
+           			<p class="blog-post-meta"><?php the_time( 'j F Y' ); ?> - <?php the_category(', ');?></p>
 
-					<?php get_template_part( 'loop-templates/content', 'none' ); ?>
+				<?php the_content( $more_link_text , $strip_teaser ); ?>
+			</div>
+	<?php endwhile; endif; ?>
 
-				<?php endif; ?>
+	<?php
+	  if ( function_exists('wp_bootstrap_pagination') )
+		wp_bootstrap_pagination();
+	?>
 
-			</main><!-- #main -->
+        </div><!-- /.blog-main -->
 
-			<!-- The pagination component -->
-			<?php understrap_pagination(); ?>
-
-		</div><!-- #primary -->
-
-		<!-- Do the right sidebar check -->
-		<?php if ( 'right' === $sidebar_pos || 'both' === $sidebar_pos ) : ?>
-
-			<?php get_sidebar( 'right' ); ?>
-
-		<?php endif; ?>
-
-	</div><!-- .row -->
-
-</div><!-- Container end -->
-
-</div><!-- Wrapper end -->
-
+</div>
+</div>
 <?php get_footer(); ?>

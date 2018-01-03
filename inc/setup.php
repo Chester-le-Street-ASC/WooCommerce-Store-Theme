@@ -41,9 +41,9 @@ if ( ! function_exists( 'understrap_setup' ) ) :
 		add_theme_support( 'title-tag' );
 
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
+		/*register_nav_menus( array(
 			'primary' => __( 'Primary Menu', 'understrap' ),
-		) );
+		) );*/
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -89,7 +89,7 @@ if ( ! function_exists( 'understrap_setup' ) ) :
 		add_theme_support( 'custom-logo' );
 
 		// Check and setup theme default settings.
-		setup_theme_default_settings();
+		//setup_theme_default_settings();
 	}
 endif; // understrap_setup.
 add_action( 'after_setup_theme', 'understrap_setup' );
@@ -118,7 +118,7 @@ if ( ! function_exists( 'all_excerpts_get_more_link' ) ) {
 	 */
 	function all_excerpts_get_more_link( $post_excerpt ) {
 
-		return $post_excerpt . ' [...]<p><a class="btn btn-secondary understrap-read-more-link" href="' . get_permalink( get_the_ID() ) . '">' . __( 'Read More...',
+		return $post_excerpt . ' [...]<p><a class="btn btn-primary understrap-read-more-link" href="' . get_permalink( get_the_ID() ) . '">' . __( 'Read More...',
 		'understrap' ) . '</a></p>';
 	}
 }
