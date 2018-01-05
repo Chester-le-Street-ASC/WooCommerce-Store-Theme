@@ -46,15 +46,15 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 
 		<div class="form-group">
 			<label for="password_current"><?php _e( 'Current Password (leave blank to leave unchanged)', 'woocommerce' ); ?></label>
-			<input type="password" class="form-control" name="password_current" id="password_current" autocomplete="off"/>
+			<input type="password" class="form-control" name="password_current" id="password_current" autocomplete="nope" />
 		</div>
 		<div class="form-group">
 			<label for="password_1"><?php _e( 'New Password (leave blank to leave unchanged)', 'woocommerce' ); ?></label>
-			<input type="password" class="form-control" name="password_1" id="password_1" autocomplete="off"/>
+			<input type="password" class="form-control" name="password_1" id="password_1" autocomplete="new-password" />
 		</div>
 		<div class="form-group">
 			<label for="password_2"><?php _e( 'Confirm New Password', 'woocommerce' ); ?></label>
-			<input type="password" class="form-control" name="password_2" id="password_2" autocomplete="off"/>
+			<input type="password" class="form-control" name="password_2" id="password_2" autocomplete="new-password" />
 		</div>
 	</fieldset>
 	<div class="clear"></div>

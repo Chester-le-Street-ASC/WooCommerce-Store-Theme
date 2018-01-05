@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<div class="form-group">
 					<label for="reg_password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
-					<input type="password" class="form-control" name="password" id="reg_password" />
+					<input type="password" class="form-control" name="password" id="reg_password" autocomplete="new-password" />
 				</div>
 
 			<?php endif; ?>
