@@ -124,6 +124,7 @@
 <script defer src="/wp-content/themes/chesterStore/js/theme.min.js"></script>
 <?php wp_footer(); ?>
 <script defer src="https://www.chesterlestreetasc.co.uk/wp-content/themes/chester/js/bootstrap.min.js"></script>
+<script async src="https://www.chesterlestreetasc.co.uk/wp-content/themes/chester/js/chester.js"></script>
 </body>
 
 </html>

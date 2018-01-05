@@ -22,6 +22,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700">
   <link rel="stylesheet" href="/wp-content/themes/chesterStore/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/storetouchicon256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/storetouchicon180.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/storetouchicon72.png">
+  <meta name="apple-mobile-web-app-title" content="CLS Store">
 
   <!-- Global site tag (analytics.js) - Google Analytics -->
   <script async="" src="https://www.google-analytics.com/analytics.js"></script>

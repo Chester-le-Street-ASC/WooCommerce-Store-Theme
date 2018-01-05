@@ -5,6 +5,10 @@
  * @package understrap
  *
  */
+ 
+ add_filter( 'wp_feed_cache_transient_lifetime', 
+   create_function('$a', 'return 900;') );
+
 
 /*
 if ( ! function_exists( 'setup_theme_default_settings' ) ) :
