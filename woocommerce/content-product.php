@@ -27,7 +27,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li <?php post_class(); ?>>
+<li <?php post_class('noGridColumn'); ?>>
 	<?php
     echo '<div class="productArchiveListItem">';
     echo '<div class="productArchiveThumbnail">';

@@ -7041,6 +7041,14 @@ p.price {
     grid-row-gap: 2rem;
     row-gap: 2rem; }
 
+  .noGridColumn {
+    flex: 0 0 25%;
+    max-width: 25%; }
+
+  @supports (display: grid) {
+    .noGridColumn {
+      flex: none;
+      max-width: none; } }
   /*  .product {
       display: grid;
       grid-template-columns: 1fr 1fr;

@@ -98,7 +98,7 @@
               </ul>
 
               <?php if (!is_user_logged_in()) { echo '
-              <p><strong>Single Sign On</strong><br><a title="Login to G Suite" target="_blank" href="http://mail.chesterlestreetasc.co.uk/">G Suite Login</a></p>
+              <p><strong>Single Sign On</strong><br><a title="Login to G Suite" target="_blank" href="https://accounts.google.com/o/saml2/initsso?idpid=C02hzmemx&spid=780455386355&forceauthn=false">G Suite Login</a></p>
               ';}?>
 
             </div>
