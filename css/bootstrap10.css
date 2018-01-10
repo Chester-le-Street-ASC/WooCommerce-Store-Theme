@@ -6731,7 +6731,7 @@ h3#reply-title {
   font-size: 100px !important; }
 
 .tweet-embed {
-  margin: 0 -10px;
+  margin: 0 -10px -1rem -10px;
   width: auto !important; }
 
 @media print {
@@ -6815,6 +6815,105 @@ a {
 
 #cookie-law .alert-link:hover {
   color: #ffffff; }
+
+/* Flex Panels */
+.flex-panel {
+  min-height: 20px;
+  border-radius: 0;
+  margin: 0 0 1rem;
+  width: 100%; }
+
+.flex-panel > :last-child {
+  margin-bottom: 0; }
+
+.flex-panel-image {
+  margin: 0;
+  width: 100%;
+  height: auto; }
+
+.flex-panel-top-blue {
+  border-top: 3px solid #005fbd; }
+
+.flex-panel-top-primary {
+  border-top: 3px solid #bd0000; }
+
+.flex-panel-primary {
+  background-color: #bd0000;
+  color: #FFF; }
+
+.flex-panel-blue {
+  background-color: #005fbd;
+  color: #FFF; }
+
+.flex-panel-link-group a {
+  color: #333;
+  text-decoration: none; }
+
+.flex-panel-link-group a:hover {
+  background: #aaa; }
+
+.flex-panel-group {
+  margin-bottom: -1.1rem; }
+
+.flex-panel-bottom-link {
+  position: absolute;
+  bottom: 34px;
+  left: 25px;
+  right: 25px; }
+
+.flex-panel-link {
+  padding-bottom: 50px; }
+
+.flex-panel-aside-icon {
+  max-width: 30px !important;
+  display: inline-block; }
+
+.chesterBlue {
+  color: #005fbd; }
+
+.flex-panel-link-group a {
+  color: #333;
+  text-decoration: none; }
+
+.flex-panel-link-group a:hover {
+  background: #e5e5e5; }
+
+.flex-panel-group {
+  margin-bottom: -1.1rem; }
+
+.flex-panel {
+  width: 100%; }
+
+.flex-panel-bottom-link {
+  position: absolute;
+  bottom: 34px;
+  left: 25px;
+  right: 25px; }
+
+.flex-panel-link {
+  padding-bottom: 50px; }
+
+.flex-panel-link-group a {
+  color: #333;
+  text-decoration: none; }
+
+.flex-panel-link-group a:hover {
+  background: #e5e5e5; }
+
+.flex-panel-group {
+  margin-bottom: -1.1rem; }
+
+.flex-panel {
+  width: 100%; }
+
+.flex-panel-bottom-link {
+  position: absolute;
+  bottom: 34px;
+  left: 25px;
+  right: 25px; }
+
+.flex-panel-link {
+  padding-bottom: 50px; }
 
 /* Post Footer for Pagination */
 .pagination {
@@ -6982,6 +7081,137 @@ a {
   background-color: #0055aa;
   border-color: #adadad;
   text-decoration: none; }
+
+/* Homepage Alerts */
+.homepage-masthead {
+  padding: 1rem 0 1rem 0;
+  color: #FFF;
+  overflow: hidden;
+  margin-top: -1.1rem; }
+
+.homepage-main {
+  margin-top: -1.1rem; }
+
+.homepage-masthead
+a {
+  color: #FFF;
+  text-decoration: underline; }
+
+.homepage-alert {
+  background: #333; }
+
+.main-content {
+  background: #9c0000; }
+
+.homepage-content-box {
+  background: #333;
+  color: #FFF;
+  padding: 1rem;
+  position: absolute;
+  min-height: 18em; }
+
+/* Frontpage CSS */
+.frontpage1 {
+  min-height: calc(100vh - 3.25rem);
+  background: rgba(0, 95, 189, 0.7), url("https://www.chesterlestreetasc.co.uk/wp-content/themes/chester/img/stylish/frontpageheaderfsbw.jpg") no-repeat fixed center;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, rgba(0, 95, 189, 0.7), rgba(0, 95, 189, 0.7)), url("https://www.chesterlestreetasc.co.uk/wp-content/themes/chester/img/stylish/frontpageheaderfsbw.jpg") no-repeat fixed center;
+  /* Chrome 10-25,  Safari 5.1-6 */
+  background: -webkit-linear-gradient(right, rgba(0, 95, 189, 0.7), rgba(0, 95, 189, 0.7)), url("https://www.chesterlestreetasc.co.uk/wp-content/themes/chester/img/stylish/frontpageheaderfsbw.jpg") no-repeat fixed center;
+  background: -webkit-gradient(linear, right top, left top, from(rgba(0, 95, 189, 0.7)), to(rgba(0, 95, 189, 0.8))), url("https://www.chesterlestreetasc.co.uk/wp-content/themes/chester/img/stylish/frontpageheaderfsbw.jpg") no-repeat fixed center;
+  background: -webkit-linear-gradient(right, rgba(0, 95, 189, 0.7), rgba(0, 95, 189, 0.8)), url("https://www.chesterlestreetasc.co.uk/wp-content/themes/chester/img/stylish/frontpageheaderfsbw.jpg") no-repeat fixed center;
+  background: -o-linear-gradient(right, rgba(0, 95, 189, 0.7), rgba(0, 95, 189, 0.8)), url("https://www.chesterlestreetasc.co.uk/wp-content/themes/chester/img/stylish/frontpageheaderfsbw.jpg") no-repeat fixed center;
+  background: linear-gradient(to left, rgba(0, 95, 189, 0.7), rgba(0, 95, 189, 0.8)), url("https://www.chesterlestreetasc.co.uk/wp-content/themes/chester/img/stylish/frontpageheaderfsbw.jpg") no-repeat fixed center;
+  /* W3C,  IE 10+/ Edge,  Firefox 16+,  Chrome 26+,  Opera 12+,  Safari 7+ */
+  backdrop-filter: blur(5px);
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+  background-repeat: repeat-y;
+  overflow-y: hidden; }
+
+.front-page-drop-shadow {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.45); }
+
+.frontpage-purple {
+  position: relative;
+  width: 100%;
+  overflow-y: hidden;
+  background: #00458a;
+  /* fallback for old browsers #7b4397; */
+  background: #00458a;
+  /* Chrome 10-25,  Safari 5.1-6 */
+  background: #00458a;
+  /* W3C,  IE 10+/ Edge,  Firefox 16+,  Chrome 26+,  Opera 12+,  Safari 7+ */ }
+
+.frontpage-blue {
+  position: relative;
+  width: 100%;
+  overflow-y: hidden;
+  background: #005fbd;
+  /* fallback for old browsers */
+  background: #005fbd;
+  /* Chrome 10-25,  Safari 5.1-6 */
+  background: -webkit-gradient(linear, right top, left top, from(#005fbd), to(#005fbd));
+  background: -webkit-linear-gradient(right, #005fbd, #005fbd);
+  background: -o-linear-gradient(right, #005fbd, #005fbd);
+  background: linear-gradient(to left, #005fbd, #005fbd);
+  /* W3C,  IE 10+/ Edge,  Firefox 16+,  Chrome 26+,  Opera 12+,  Safari 7+ */ }
+
+.header-content {
+  padding: 3rem 0; }
+
+.frontpage-link {
+  text-decoration: underline;
+  color: #ffffff; }
+
+.frontpage-link:hover {
+  text-decoration: underline;
+  color: #ffffff; }
+
+.header-content-inner {
+  color: #FFF; }
+
+.header-content-inner .lead {
+  font-weight: 400; }
+
+.header-content .cell {
+  background: rgba(51, 51, 51, 0.5);
+  color: #FFFFFF;
+  padding: 1rem; }
+
+/* Flagship Content - Covers /galahome pages */
+.galahome {
+  /*a {
+    color: #0288d1;
+  }
+
+  a:focus, a:hover, a:active {
+    color: #0273b0;
+  }*/ }
+  .galahome .chesterBlue {
+    color: #0288d1; }
+  .galahome .flex-panel-top-blue {
+    border-top: 3px solid #0288d1; }
+
+.flagship-content {
+  padding: 48px 0;
+  color: #FFF;
+  background-color: #333;
+  background-image: url(../img/stylish/poolWaterBG.jpg);
+  background-position: center center;
+  background-blend-mode: overlay;
+  background-repeat: repeat-y; }
+
+.list-group-flagship-content {
+  margin: 0; }
+
+.list-group-flagship-content a.list-group-item:focus, .list-group-flagship-content a.list-group-item:hover, .list-group-flagship-content a.list-group-item:active {
+  background-color: #0288d1;
+  color: #fff; }
+
+.list-group-flagship-content a.list-group-item {
+  color: #212529; }
 
 .shop_table {
   border-radius: 0; }
